@@ -1,4 +1,15 @@
 
+if (Get-Module -ListAvailable -Name posh-git) {
+    Write-Host "posh-git is installed"
+}
+else {
+    Write-Host "posh-git is not installed"
+    $(PowerShellGet\Install-Module posh-git -Scope CurrentUser)
+}
+
+
+Import-Module posh-git
+
 function devs {
     $Script:devs = $args
 }
