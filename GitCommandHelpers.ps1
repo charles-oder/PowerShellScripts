@@ -49,3 +49,21 @@ function cia {
     $message = $(getCommitMessage $args)
     git commit -m "$message"
 }
+
+function amend {
+    git commit --amend --no-edit
+}
+
+function backoutGit {
+    git reset --hard HEAD~
+}
+
+function rebaseLastPull {
+    backoutGit
+    git pull --rebase
+}
+
+function resetSubmodules {
+    git submodule foreach git reset --hard
+    git submodule foreach git clean -dfx
+}
