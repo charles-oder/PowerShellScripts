@@ -9,6 +9,7 @@ else {
 
 
 Import-Module posh-git
+Start-SshAgent
 
 function devs {
     $Script:devs = $args
