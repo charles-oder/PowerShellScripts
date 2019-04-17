@@ -31,3 +31,9 @@ function ci {
     $message = $(getCommitMessage $args)
     git commit -m "$message"
 }
+
+function cia {
+    git add .
+    $message = $(getCommitMessage $args)
+    git commit -m "$message"
+}
