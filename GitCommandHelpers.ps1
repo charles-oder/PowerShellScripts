@@ -19,6 +19,40 @@ function story([String] $story) {
     $Script:story = $story
 }
 
+function localGit {
+    $git_ip = $args[0]
+    if ($args[1] -ne $null -and $args[1] -ne "") {
+        $git_dir = $args[1]
+    } else {
+        $git_dir = $(get-location).Path.Split('\')[-1]
+    }
+    $git_path = "$git_ip/Users/git/$git_dir"
+    
+    echo "setting location to $git_path"
+    $Script:localGit = $git_path
+}
+
+function pushToLocal {
+    $localRepo = $Script:localGit
+    $sshString = "ssh://git@$localRepo"
+    echo "pulling from $localRepo"
+    git push $sshString $args
+}
+
+function fetchFromLocal {
+    $localRepo = $Script:localGit
+    $sshString = "ssh://git@$localRepo"
+    echo "pulling from $localRepo"
+    git fetch $sshString $args
+}
+
+function pullFromLocal {
+    $localRepo = $Script:localGit
+    $sshString = "ssh://git@$localRepo"
+    echo "pulling from $localRepo"
+    git pull $sshString $args
+}
+
 function getCommitMessage {
     $message = ""
     if ($Script:story -ne $null -and $Script:story -ne "") {
