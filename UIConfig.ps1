@@ -10,14 +10,18 @@ $size.width=70
 $size.height=5000
 $Shell.BufferSize = $size
 
-$Shell.backgroundcolor = "Black"
-$Shell.foregroundcolor = "Green"
-$colors = $host.privatedata
-$colors.verbosebackgroundcolor = "Black"
-$colors.verboseforegroundcolor = "Magenta"
-$colors.warningbackgroundcolor = "Black"
-$colors.warningforegroundcolor = "Yellow"
-$colors.ErrorBackgroundColor = "Black"
-$colors.ErrorForegroundColor = "Red"
+$Host.UI.RawUI.BackgroundColor = ($bckgrnd = 'Black')
+$Host.UI.RawUI.ForegroundColor = 'White'
+$Host.PrivateData.ErrorForegroundColor = 'Red'
+$Host.PrivateData.ErrorBackgroundColor = $bckgrnd
+$Host.PrivateData.WarningForegroundColor = 'Magenta'
+$Host.PrivateData.WarningBackgroundColor = $bckgrnd
+$Host.PrivateData.DebugForegroundColor = 'Yellow'
+$Host.PrivateData.DebugBackgroundColor = $bckgrnd
+$Host.PrivateData.VerboseForegroundColor = 'Green'
+$Host.PrivateData.VerboseBackgroundColor = $bckgrnd
+$Host.PrivateData.ProgressForegroundColor = 'Cyan'
+$Host.PrivateData.ProgressBackgroundColor = $bckgrnd
+
 
 Clear-Host
